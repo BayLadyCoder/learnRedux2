@@ -8,19 +8,25 @@ export default class SearchBar extends Component {
     this.state = { term: ''};
 
     // to handle 'this' problem in onInputChange function
-    // since we don't use fat arrow when we pass the event handler in onChange event
+    // since we don't use fat arrow when we pass the event handler
+    // in onChange event Listener
     // we need to use .bind(this) to fix the 'this' problem
     this.onInputChange = this.onInputChange.bind(this);
   }
 
   onInputChange(event) {
-    console.log(event.target.value);
     this.setState({term: event.target.value});
+  }
+
+  onFormSubmit(event) {
+    event.preventDefault();
+
+    //we need to go and fetch weather data
   }
 
   render() {
     return (
-      <form className="input-group">
+      <form onSubmit={this.onFormSubmit} className="input-group">
         <input
           placeholder="Get a five-day forcast in your favorite cities"
           className="form-control"
