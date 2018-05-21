@@ -6,3 +6,9 @@ td, th {
 .input-group {
   margin: 20px 0px;
 }
+
+/* find first td on each row, then in that td select the child div */
+td:first-of-type, td:first-of-type > div {
+  height: 200px;
+  width: 250px;
+}
